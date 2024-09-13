@@ -1,50 +1,91 @@
 # React + TypeScript + Vite
+# FinanzaApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FinanzaApp è un'applicazione web moderna per la gestione delle finanze personali. Permette di monitorare entrate, uscite, e saldo attuale, visualizzare report e grafici dettagliati, e gestire le transazioni e categorie. L'app è costruita utilizzando React con TypeScript, Material UI e Tailwind CSS.
 
-Currently, two official plugins are available:
+## Funzionalità Principali
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Dashboard Principale
+- **Overview Finanziaria**: Riepilogo delle entrate, uscite e saldo attuale.
+- **Grafici e Analisi**: Grafico a torta per la distribuzione delle categorie di spesa e grafico a linee per l'andamento delle finanze nel tempo.
+- **Quick Actions**: Pulsanti per aggiungere velocemente una nuova transazione o aggiornare una categoria.
 
-## Expanding the ESLint configuration
+### Gestione Transazioni
+- **Aggiunta, Modifica e Rimozione di Transazioni**: Form per inserire nuove transazioni con campi per importo, data, tipo (entrata/uscita), categoria, e descrizione.
+- **Filtro e Ricerca**: Possibilità di filtrare le transazioni per periodo, categoria e importo.
+- **Esportazione Dati**: Opzione per esportare le transazioni in formato CSV o Excel.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Gestione delle Categorie
+- **Creazione di Nuove Categorie**: Creazione di categorie personalizzate per le spese e entrate.
+- **Icone Personalizzabili**: Ogni categoria può avere un’icona e un colore specifico.
 
-- Configure the top-level `parserOptions` property like this:
+### Report Finanziari
+- **Report Mensili e Settimanali**: Riepilogo delle finanze per il periodo selezionato con statistiche dettagliate.
+- **Obiettivi di Spesa**: Impostazione e monitoraggio degli obiettivi di spesa per ogni categoria.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Gestione Utente
+- **Autenticazione e Sicurezza**: Login e registrazione con autenticazione JWT e crittografia delle password.
+- **Profilo Utente**: Gestione dei dati dell’account e delle preferenze dell’applicazione.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Notifiche e Alert
+- **Alert di Spesa**: Notifiche se una categoria supera un certo limite di spesa.
+- **Promemoria di Entrate Ricorrenti**: Reminder per entrate o spese ricorrenti come stipendi o bollette.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Design e Layout
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Design Generale
+- **Stile Moderno e Minimalista**: Design pulito con colori neutri e accenti vivaci.
+- **Tipografia Chiara e Leggibile**: Font sans-serif come Inter o Roboto.
+- **Spazi Bianchi**: Spazi bianchi per evitare sovraccarico visivo.
+
+### Layout delle Pagine
+- **Dashboard Principale**: Include saluto personalizzato, cards informative, grafici interattivi e lista delle ultime transazioni.
+- **Pagina Transazioni**: Contiene una sidebar laterale, tabella con transazioni e un bottone fluttuante per aggiungere nuove transazioni.
+- **Gestione delle Categorie**: Grid di icone categoria e bottone per aggiungere nuove categorie.
+- **Report Finanziari**: Grafici comparativi e progress bar degli obiettivi.
+- **Profilo Utente**: Impostazioni account e tema scuro/chiaro.
+
+### Palette di Colori Consigliata
+- **Primario**: Blu (#4A90E2) o Verde (#27AE60).
+- **Secondario**: Grigio Scuro (#333).
+- **Accenti**: Arancione (#F2994A).
+- **Background**: Bianco (#FFF) o Grigio Chiaro (#F4F6F8).
+
+### Componenti UI Specifici
+- **Button**: Rettangolari con angoli arrotondati e sfumature leggere.
+- **Cards con Ombre Soft**: Ombre leggere per evidenziare le card.
+- **Modali**: Animazioni fluide all’apertura per operazioni di aggiunta e modifica.
+
+## Installazione
+
+1. Clona il repository:
+    ```bash
+    git clone https://github.com/tuo-utente/finanzaapp.git
+    ```
+
+2. Naviga nella cartella del progetto:
+    ```bash
+    cd finanzaapp
+    ```
+
+3. Installa le dipendenze:
+    ```bash
+    npm install
+    ```
+
+4. Avvia l'applicazione:
+    ```bash
+    npm start
+    ```
+
+## Contributi
+
+Se vuoi contribuire al progetto, per favore apri una pull request o segnala eventuali problemi nella sezione issues del repository.
+
+## Licenza
+
+Questo progetto è concesso sotto la Licenza MIT - vedi il file [LICENSE](LICENSE) per i dettagli.
+
+## Contatti
+
+Per ulteriori informazioni, contattami a [tuo-email@example.com](mailto:tuo-email@example.com).
