@@ -1,10 +1,9 @@
 import React from 'react';
-import { Box, CssBaseline } from '@mui/material';
+import {Box} from '@mui/material';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <Box display="flex" flexDirection="column" height="100vh">
-            <CssBaseline />
             <div className="flex flex-col flex-grow p-4 bg-gray-100">
                 {/* Prima riga */}
                 <div className="flex flex-col md:flex-row md:space-x-4">

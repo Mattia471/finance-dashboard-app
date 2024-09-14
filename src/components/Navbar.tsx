@@ -1,28 +1,31 @@
 import React from 'react';
-import {AppBar, Avatar, IconButton, Toolbar, Typography} from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
 
 const Navbar: React.FC = () => {
     return (
-        <AppBar position="sticky" elevation={1}>
-            <Toolbar className="justify-between">
-                <Typography variant="h6" className="flex-grow">
+        <header className="bg-white shadow-md sticky top-0 z-50">
+            <div className="flex items-center justify-between p-4">
+                <h1 className="text-gray-800 text-2xl font-bold">
                     Finances App
-                </Typography>
-                <div className="flex space-x-2">
-                    <IconButton color="inherit">
+                </h1>
+                <div className="flex items-center space-x-2">
+                    {/* Placeholder for future icons */}
+                    {/* <button className="text-gray-700">
                         <HomeIcon />
-                    </IconButton>
-                    {/*<IconButton color="inherit">*/}
-                    {/*    <InfoIcon />*/}
-                    {/*</IconButton>*/}
-                    {/*<IconButton color="inherit">*/}
-                    {/*    <ContactMailIcon />*/}
-                    {/*</IconButton>*/}
-                    <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/2.jpg" />
+                    </button>
+                    <button className="text-gray-700">
+                        <InfoIcon />
+                    </button>
+                    <button className="text-gray-700">
+                        <ContactMailIcon />
+                    </button> */}
+                    <img
+                        alt="User Avatar"
+                        src="https://mui.com/static/images/avatar/2.jpg"
+                        className="w-8 h-8 rounded-full"
+                    />
                 </div>
-            </Toolbar>
-        </AppBar>
+            </div>
+        </header>
     );
 };
 
