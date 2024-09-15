@@ -21,7 +21,8 @@ const Widget = ({title, valueToShow, color}) => {
         }
     }, [color]);
     return (
-        <div className={`p-4 rounded-lg shadow-md ${colorClass}`}>
+        <div
+            className={`p-4 rounded-lg shadow-md ${colorClass} transition duration-300 ease-in-out transform hover:scale-105 hover:bg-opacity-50 cursor-pointer`}>
             {/* Balance and chip section */}
             <div className="flex justify-between mb-4">
                 <div>
@@ -29,30 +30,9 @@ const Widget = ({title, valueToShow, color}) => {
                     <p className="text-2xl font-semibold">{valueToShow}</p>
                 </div>
                 <div className="flex items-center">
-                    {/* Simulate a chip */}
-                    <Euro className={`w-6 h-6 ${color === "white" ? "text-gray-800" : "text-white"}`} />
+                    <Euro className={`w-6 h-6 ${color === "white" ? "text-gray-800" : "text-white"}`}/>
                 </div>
             </div>
-
-            {/* Uncomment this section if needed */}
-            {/*<div className="flex justify-between mb-4">
-                <div>
-                    <p className="text-sm font-light">CARD HOLDER</p>
-                    <p className="font-medium">Eddy Cusuma</p>
-                </div>
-                <div>
-                    <p className="text-sm font-light">VALID THRU</p>
-                    <p className="font-medium">12/22</p>
-                </div>
-            </div>*/}
-
-            {/* Uncomment this section if needed */}
-            {/*<div className="flex justify-between items-center">
-                <p className="font-semibold tracking-wider">3778 **** **** 1234</p>
-                <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
-                    <div className="w-4 h-4 rounded-full bg-white" />
-                </div>
-            </div>*/}
         </div>
     );
 };

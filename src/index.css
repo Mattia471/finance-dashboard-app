@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Barra di scorrimento moderna */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5; /* Colore di sfondo */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cccccc; /* Colore del pollice */
+    border-radius: 10px; /* Rende il pollice più tondeggiante */
+    border: 2px solid #f5f5f5; /* Spaziatura intorno al pollice */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #999999; /* Colore del pollice al passaggio del mouse */
+}

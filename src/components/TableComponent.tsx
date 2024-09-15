@@ -1,23 +1,34 @@
-import React from 'react';
 import dayjs from "dayjs";
 import {formatCurrency} from "../utils.tsx";
+import {useState} from "react";
 
-type DataRow = {
+export type DataRow = {
     category: string;
     amount: number;
     date: string;
     description: string;
+    transactionType: 'income' | 'expense';
 };
 
-const rows: DataRow[] = [
-    { category: 'Rent', amount: 1200, date: '2024-09-01', description: 'Pagamento mensile dell\'affitto' },
-    { category: 'Groceries', amount: 250, date: '2024-09-02', description: 'Spesa settimanale' },
-    { category: 'Utilities', amount: 150, date: '2024-09-05', description: 'Bollette di elettricità e acqua' },
-    { category: 'Entertainment', amount: 75, date: '2024-09-10', description: 'Biglietti per il cinema e cene fuori' },
-    { category: 'Savings', amount: 500, date: '2024-09-15', description: 'Contributo mensile ai risparmi' },
-];
+const TableComponent = ({rows}: { rows: DataRow[] }) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 6;
 
-const TableComponent: React.FC = () => {
+    // Calcola l'indice di inizio e di fine per la paginazione
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+
+    // Mostra solo le righe della pagina corrente
+    const paginatedRows = rows.slice(startIndex, endIndex);
+
+    // Numero totale di pagine
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+    // Funzione per gestire il cambio pagina
+    const handlePageChange = (pageNumber: number) => {
+        setCurrentPage(pageNumber);
+    };
+
     return (
         <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
@@ -30,7 +41,7 @@ const TableComponent: React.FC = () => {
                 </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                {rows.map((row) => (
+                {paginatedRows.map((row) => (
                     <tr key={row.category}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.category}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">{formatCurrency(row.amount)}</td>
@@ -40,6 +51,21 @@ const TableComponent: React.FC = () => {
                 ))}
                 </tbody>
             </table>
+
+            {/* Paginazione numerica */}
+            <div className="flex justify-start items-end space-x-2 mt-4">
+                {Array.from({length: totalPages}, (_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => handlePageChange(i + 1)}
+                        className={`px-3 py-1 rounded-md text-sm font-medium ${
+                            currentPage === i + 1 ? "bg-gray-500 text-white" : "bg-gray-200 text-gray-600"
+                        } hover:bg-gray-300 transition-colors duration-200`}
+                    >
+                        {i + 1}
+                    </button>
+                ))}
+            </div>
         </div>
     );
 };

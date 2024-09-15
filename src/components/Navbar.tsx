@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar: React.FC = () => {
     return (
-        <header className="bg-white shadow-md sticky top-0 z-50">
+        <header className="bg-white shadow-md top-0 z-50">
             <div className="flex items-center justify-between p-4">
                 <h1 className="text-gray-800 text-2xl font-bold">
                     Finances App
