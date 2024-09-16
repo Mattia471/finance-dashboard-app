@@ -7,7 +7,7 @@ const CardList = ({transactions}) => {
             <ul className="divide-y divide-gray-200">
                 {transactions.map((transaction, index) => (
                     <li key={index} className="p-4 flex items-center space-x-4">
-                        {/* Icona transazione dsdsd*/}
+                        {/* Icona transazione */}
                         <div
                             className={`flex-shrink-0 text-blue-700 rounded-full p-3 bg-blue-200`}>
                             <IcecreamOutlined/>
