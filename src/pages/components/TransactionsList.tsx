@@ -1,6 +1,7 @@
 import {ArrowDownward, ArrowUpward} from "@mui/icons-material";
 import {formatCurrency} from "../../utils.tsx";
 import {useEffect, useState} from "react";
+import dayjs from "dayjs";
 
 const TransactionsList = ({transactions}) => {
     const [transactionsList, setTransactionsList] = useState(transactions);
@@ -37,8 +38,8 @@ const TransactionsList = ({transactions}) => {
                         {/* Dettagli transazione */}
                         <div className="flex-1">
                             <p className="text-md font-medium">{transaction.category}</p>
-                            <p className="text-sm text-black">{transaction.date}</p>
-                            <p className="text-sm text-black font-semibold">{transaction.description}</p>
+                            <p className="text-sm text-black">{dayjs(transaction.date).format("DD/MM/YYYY")}</p>
+                            < p className="text-sm text-black font-semibold">{transaction.description}</p>
                         </div>
                         {/* Importo */}
                         <div className="flex-shrink-0 text-right">

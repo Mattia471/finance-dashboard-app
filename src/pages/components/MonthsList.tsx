@@ -1,8 +1,7 @@
-import {Home, IcecreamOutlined, LocalHospital, ShoppingBasket} from "@mui/icons-material";
+import {CalendarMonth} from "@mui/icons-material";
 import {formatCurrency} from "../../utils.tsx";
 import {useEffect, useState} from "react";
 
-const hobbyIcons = [<Home/>, <ShoppingBasket/>, <IcecreamOutlined/>, <LocalHospital/>];
 
 const MonthsList = ({months}) => {
     const [monthsList, setMonthsList] = useState(months);
@@ -30,7 +29,7 @@ const MonthsList = ({months}) => {
                         {/* Icona transazione */}
                         <div
                             className={`flex-shrink-0 rounded-full p-3 bg-blue-50 text-blue-700`}>
-                            {hobbyIcons[Math.floor(Math.random() * hobbyIcons.length)]}
+                            <CalendarMonth/>
                         </div>
                         {/* Dettagli transazione */}
                         <div className="flex-1">

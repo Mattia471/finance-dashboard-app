@@ -1,6 +1,5 @@
 import {Doughnut} from "react-chartjs-2";
 import {useEffect, useState} from "react";
-import {IcecreamOutlined} from "@mui/icons-material";
 import {formatCurrency} from "../../utils.tsx";
 
 const categoriesData = [
@@ -70,9 +69,7 @@ const MonthBalance = ({data}) => {
                     <li key={index}
                         className="p-4 flex items-center space-x-4 text-gray-900">
                         {/* Icona transazione */}
-                        <div className="flex-shrink-0 rounded-full p-3 bg-blue-50 text-blue-700">
-                            <IcecreamOutlined/>
-                        </div>
+                        <div className="flex-shrink-0 rounded-full p-3 w-12 h-12 bg-red-500 text-blue-700"/>
                         {/* Dettagli transazione */}
                         <div className="flex-1">
                             <p className="text-sm font-medium">{transaction.category}</p>
