@@ -2,7 +2,7 @@ import {Euro} from "@mui/icons-material";
 import {useEffect, useState} from "react"; // Puoi usare un'icona SVG se non vuoi usare Material UI
 
 const Widget = ({title, valueToShow, color}) => {
-    const [colorClass, setColorClass] = useState("bg-gradient-to-br from-blue-500 to-indigo-600 text-white");
+    const [colorClass, setColorClass] = useState("bg-gradient-to-br from-blue-600 to-indigo-600 text-white");
 
     useEffect(() => {
         switch (color) {

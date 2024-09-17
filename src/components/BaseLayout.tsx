@@ -25,15 +25,18 @@ const Layout = ({children}) => {
                     </div>
                 </div>
 
-                {/* Seconda riga */}
                 <div className="flex flex-col md:flex-row md:space-x-4">
-                    <div className="flex-2 p-4 md:w-2/4">
+                    <div className="p-4 w-full">
                         {children && children[3]}
                     </div>
-                    <div className="flex-1 p-4">
+                </div>
+
+                {/* Seconda riga */}
+                <div className="flex flex-col md:flex-row md:space-x-4">
+                    <div className="p-4 md:w-1/3">
                         {children && children[4]}
                     </div>
-                    <div className="flex-1 p-4">
+                    <div className="p-4 md:w-2/3">
                         {children && children[5]}
                     </div>
                 </div>
