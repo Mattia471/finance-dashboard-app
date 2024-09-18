@@ -1,4 +1,3 @@
-import {ArrowDownward, ArrowUpward} from "@mui/icons-material";
 import {formatCurrency} from "../../utils.tsx";
 import {useEffect, useState} from "react";
 import dayjs from "dayjs";
@@ -9,9 +8,6 @@ const TransactionsList = ({transactions}) => {
     useEffect(() => {
         setTransactionsList(transactions);
     }, [transactions]);
-
-    const transactionTypeStyles = (type) =>
-        type === 'income' ? 'text-green-500' : 'text-red-500';
 
     return (
         <div className="bg-white rounded-xl shadow-md overflow-y-scroll w-full max-h-96">
@@ -31,19 +27,18 @@ const TransactionsList = ({transactions}) => {
                         }}
                         className={`p-4 flex items-start space-x-4 text-gray-900`}>
                         {/* Icona transazione */}
-                        <div
-                            className={`flex-shrink-0 rounded-full p-3 text-white  ${transaction.transactionType === 'income' ? 'bg-green-500' : 'bg-red-500'}`}>
-                            {transaction.transactionType === 'income' ? <ArrowUpward/> : <ArrowDownward/>}
+                        <div className={`w-10 text-center `}>
+                            <span className={"text-2xl font-medium"}> {dayjs(transaction.date).format("DD")}</span>
+                            <span className={"text-md uppercase"}> {dayjs(transaction.date).format("MMM")}</span>
                         </div>
                         {/* Dettagli transazione */}
-                        <div className="flex-1">
-                            <p className="text-md font-medium">{transaction.category}</p>
-                            <p className="text-sm text-black">{dayjs(transaction.date).format("DD/MM/YYYY")}</p>
-                            < p className="text-sm text-black font-semibold">{transaction.description}</p>
+                        <div className="flex-1 space-y-1 justify-center">
+                            <p className="text-xl font-medium">{transaction.category}</p>
+                            <p className="text-sm">{transaction.description}</p>
                         </div>
                         {/* Importo */}
                         <div className="flex-shrink-0 text-right">
-                            <p className={`text-md font-semibold ${transactionTypeStyles(transaction.transactionType)}`}>
+                            <p className={`text-xl font-semibold`}>
                                 {transaction.transactionType === 'income' ? '+' : '-'}€{formatCurrency(transaction.amount)}
                             </p>
                         </div>
