@@ -1,14 +1,25 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
 import {Box} from "@mui/material";
 import BaseLayout from "../components/BaseLayout.tsx";
 import Widget from "../components/Widget.tsx";
 import MonthsList from "./components/MonthsList.tsx";
 import TransactionsList from "./components/TransactionsList.tsx";
 import MonthBalance from "./components/MonthBalance.tsx";
-import {monthsBalanceMock, transactionsMock} from "../mock.ts";
+import {monthsBalanceMock} from "../mock.ts";
+import axios from "axios";
+import {Transaction} from "../types.ts";
 
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+    const getAll = async () => {
+        const response = await axios.get('http://localhost:8080/api/transactions')
+        setTransactions(response.data)
+    }
+    useEffect(() => {
+        getAll();
+    }, []);
     return (
         <BaseLayout>
             <Widget
@@ -61,7 +72,7 @@ const Dashboard: React.FC = () => {
             <Box>
                 <span className="text-xl font-bold text-gray-900">Transazioni mensili</span>
                 <div className="mt-4">
-                    <TransactionsList transactions={transactionsMock}/>
+                    <TransactionsList transactions={transactions}/>
                 </div>
             </Box>
         </BaseLayout>
