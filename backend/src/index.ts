@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const transactionRoutes = require('./routes/transactionRoutes.ts');
+const transactionRoutes = require('./dist/routes/transactionRoutes.js');
 
 // Carica variabili d'ambiente
 dotenv.config();
