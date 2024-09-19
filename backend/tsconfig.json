@@ -1,13 +1,35 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "strict": true,
+    /* Projects */
+    "incremental": true,
+    "tsBuildInfoFile": "./.tsbuildinfo",
+    "noImplicitAny": false,
+
+    /* Language and Environment */
+    "target": "es2016",
+    "module": "es2020", // Usa 'es2020' per i moduli ES
+    "moduleResolution": "node", // Risolvi i moduli come in Node.js
+    "jsx": "react", // Se usi React, altrimenti puoi omettere questa opzione
+
+    /* Modules */
+    "baseUrl": "./", // Base directory per risolvere i moduli non relativi
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    },
+
+    /* Emit */
+    "outDir": "./dist",
+    "sourceMap": true,
+    "declaration": true, // Genera file .d.ts
+
+    /* Interop Constraints */
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "allowSyntheticDefaultImports": true,
+
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/*.test.ts"]
 }
