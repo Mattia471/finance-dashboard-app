@@ -35,6 +35,7 @@ const MonthsList = ({months}) => {
                         <div className="flex-1">
                             <p className="text-md font-medium">{transaction.category}</p>
                             <p className="text-sm font-semibold">€{formatCurrency(transaction.amount)}</p>
+                            <small className="text-xs font-semibold">+ 20% rispetto al mese precedente</small>
                         </div>
                     </li>
                 ))}

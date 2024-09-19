@@ -25,7 +25,7 @@ const TransactionsList = ({transactions}) => {
                             });
                             setTransactionsList(newTransactions);
                         }}
-                        className={`p-4 flex items-start space-x-4 text-gray-900`}>
+                        className={`p-4 flex items-start space-x-4 text-gray-900 cursor-pointer hover:bg-gray-50 ${transaction.selected ? 'bg-gray-100' : ''}`}>
                         {/* Icona transazione */}
                         <div className={`w-10 text-center `}>
                             <span className={"text-2xl font-medium"}> {dayjs(transaction.date).format("DD")}</span>
