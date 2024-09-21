@@ -1,15 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const transactionRoutes = require('./routes/transactionRoutes.ts');
 
-// Carica variabili d'ambiente
-dotenv.config();
+const mongoURI = "mongodb+srv://admin-mattia:OeWKBhFbDdBtOidC@cluster0.uyapjqy.mongodb.net/finance?retryWrites=true&w=majority&appName=Cluster0";
 
 // Inizializza l'app Express
 const app = express();
-const mongoUri = process.env.MONGO_URI;
 
 // Middleware per gestire CORS e JSON
 app.use(cors());
@@ -19,7 +16,7 @@ app.use(express.json());
 app.use('/api/transactions', transactionRoutes);
 
 // Connessione a MongoDB
-mongoose.connect("mongodb+srv://admin-mattia:OeWKBhFbDdBtOidC@cluster0.uyapjqy.mongodb.net/finance?retryWrites=true&w=majority&appName=Cluster0", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err));
 
