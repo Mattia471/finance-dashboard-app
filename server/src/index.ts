@@ -9,6 +9,7 @@ dotenv.config();
 
 // Inizializza l'app Express
 const app = express();
+const mongoUri = process.env.MONGO_URI;
 
 // Middleware per gestire CORS e JSON
 app.use(cors());
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use('/api/transactions', transactionRoutes);
 
 // Connessione a MongoDB
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err));
 
