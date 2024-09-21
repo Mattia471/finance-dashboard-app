@@ -6,16 +6,16 @@ import MonthsList from "./components/MonthsList.tsx";
 import TransactionsList from "./components/TransactionsList.tsx";
 import MonthBalance from "./components/MonthBalance.tsx";
 import {monthsBalanceMock} from "../mock.ts";
-import axios from "axios";
 import {Transaction} from "../types.ts";
+import {getTransactions} from "../services/transactionsController.ts";
 
 
 const Dashboard = () => {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
 
     const getAll = async () => {
-        const response = await axios.get('http://localhost:8080/api/transactions')
-        setTransactions(response.data)
+        const response = await getTransactions();
+        setTransactions(response.data);
     }
     useEffect(() => {
         getAll();
