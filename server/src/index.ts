@@ -19,7 +19,7 @@ app.use(express.json());
 app.use('/api/transactions', transactionRoutes);
 
 // Connessione a MongoDB
-mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb+srv://admin-mattia:OeWKBhFbDdBtOidC@cluster0.uyapjqy.mongodb.net/finance?retryWrites=true&w=majority&appName=Cluster0", {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err));
 
