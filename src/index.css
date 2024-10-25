@@ -17,3 +17,13 @@
 ::-webkit-scrollbar-thumb:hover {
     background-color: #999999; /* Colore del pollice al passaggio del mouse */
 }
+
+
+.sweet-message-container {
+    max-width: 600px;
+    margin: 20px auto; /* Margine per separare dal resto del contenuto */
+}
+
+.app-container {
+    padding: 20px;
+}
