@@ -8,6 +8,10 @@ function App() {
         setShowSurprise(true);
     };
 
+    const sendKiss = () => {
+        alert('Bacio inviato! 😘');
+    };
+
     return (
         <div className="app-container flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-pink-100 to-white">
             {/* Messaggio di benvenuto */}
@@ -35,6 +39,14 @@ function App() {
                         Questo orsacchiotto è qui per dirti quanto ti voglio bene e quanto desidero che torni tutto come prima! ❤️
                     </p>
                     <h3 className="text-xl font-bold text-pink-600 mt-4">Ti voglio tanto bene, non tenermi distante! 🌟</h3>
+
+            {/* Pulsante per inviare un bacio */}
+            <button
+                className="mt-6 bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition duration-200"
+                onClick={sendKiss}
+            >
+                Se clicchi mi mandi un bacio! 😘
+            </button>
                 </div>
             )}
         </div>
